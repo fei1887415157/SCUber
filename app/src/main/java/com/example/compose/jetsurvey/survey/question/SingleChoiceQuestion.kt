@@ -117,8 +117,8 @@ fun RadioButtonWithImageRow(
                 painter = painterResource(id = imageResourceId),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(56.dp)
-                    .clip(MaterialTheme.shapes.extraSmall)
+                    .size(100.dp)       // original: 56
+                    .clip(MaterialTheme.shapes.extraLarge)  // larger shape -> larger round edges
                     .padding(start = 0.dp, end = 8.dp)
             )
             Spacer(Modifier.width(8.dp))
