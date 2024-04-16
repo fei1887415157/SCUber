@@ -27,6 +27,9 @@ import com.example.compose.jetsurvey.survey.question.SingleChoiceQuestion
 import com.example.compose.jetsurvey.survey.question.SliderQuestion
 import com.example.compose.jetsurvey.survey.question.Superhero
 
+
+
+// In my free time I like to ...
 @Composable
 fun FreeTimeQuestion(
     selectedAnswers: List<Int>,
@@ -37,12 +40,14 @@ fun FreeTimeQuestion(
         titleResourceId = R.string.in_my_free_time,
         directionsResourceId = R.string.select_all,
         possibleAnswers = listOf(
-            R.string.read,
+            R.string.sports,
             R.string.work_out,
+            R.string.read,
             R.string.draw,
-            R.string.play_games,
             R.string.dance,
+            R.string.play_games,
             R.string.watch_movies,
+            R.string.others,
         ),
         selectedAnswers = selectedAnswers,
         onOptionSelected = onOptionSelected,
@@ -50,20 +55,23 @@ fun FreeTimeQuestion(
     )
 }
 
+
+
+// What is your MBTI personality type?
 @Composable
-fun SuperheroQuestion(
+fun YourMBTIQuestion(
     selectedAnswer: Superhero?,
     onOptionSelected: (Superhero) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     SingleChoiceQuestion(
-        titleResourceId = R.string.pick_superhero,
+        titleResourceId = R.string.your_MBTI,
         directionsResourceId = R.string.select_one,
         possibleAnswers = listOf(
-            Superhero(R.string.spark, R.drawable.spark),
-            Superhero(R.string.lenz, R.drawable.lenz),
-            Superhero(R.string.bugchaos, R.drawable.bug_of_chaos),
-            Superhero(R.string.frag, R.drawable.frag),
+            Superhero(R.string.INTJ, R.drawable.lenz),
+            Superhero(R.string.ENTJ, R.drawable.lenz),
+            Superhero(R.string.ISFP, R.drawable.bug_of_chaos),
+            Superhero(R.string.ESFP, R.drawable.frag),
         ),
         selectedAnswer = selectedAnswer,
         onOptionSelected = onOptionSelected,

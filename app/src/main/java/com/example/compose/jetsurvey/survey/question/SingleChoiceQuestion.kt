@@ -135,14 +135,14 @@ fun RadioButtonWithImageRow(
 @Composable
 fun SingleChoiceQuestionPreview() {
     val possibleAnswers = listOf(
-        Superhero(R.string.spark, R.drawable.spark),
-        Superhero(R.string.lenz, R.drawable.lenz),
-        Superhero(R.string.bugchaos, R.drawable.bug_of_chaos),
+        Superhero(R.string.INTJ, R.drawable.spark),
+        Superhero(R.string.ENTJ, R.drawable.lenz),
+        Superhero(R.string.ISFP, R.drawable.bug_of_chaos),
     )
     var selectedAnswer by remember { mutableStateOf<Superhero?>(null) }
 
     SingleChoiceQuestion(
-        titleResourceId = R.string.pick_superhero,
+        titleResourceId = R.string.your_MBTI,
         directionsResourceId = R.string.select_one,
         possibleAnswers = possibleAnswers,
         selectedAnswer = selectedAnswer,

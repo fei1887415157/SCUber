@@ -45,24 +45,45 @@
     <string name="select_all">Select all that apply.</string>
     <string name="select_date">Select date.</string>
 
+
+
     <!-- question 1-->
     <string name="in_my_free_time">In my free time I like to …</string>
-    <string name="read">Read</string>
     <string name="work_out">Work out</string>
+    <string name="sports">Play sports</string>
+    <string name="read">Read</string>
     <string name="draw">Draw</string>
-    <string name="play_games">Play video games</string>
     <string name="dance">Dance</string>
+    <string name="play_games">Play video games</string>
     <string name="watch_movies">Watch movies</string>
+    <string name="others">Others</string>
+
+
 
     <!-- question 2 -->
-    <string name="pick_superhero">Pick a Compose comic character</string>
-    <string name="spark">Spark</string>
-    <string name="lenz">Lenz</string>
-    <string name="bugchaos">Bug of Chaos</string>
-    <string name="frag">Frag</string>
+    <string name="your_MBTI">What is your MBTI personality type?</string>
+    <string name="INTJ">INTJ: Strategist</string>
+    <string name="ENTJ">ENTJ: Commander</string>
+    <string name="ISFP">ISFP: Artist</string>
+    <string name="ESFP">ESFP: Entertainer</string>
+    <string name="INFJ">INFJ: Advocate</string>
+    <string name="ENFJ">ENFJ: Harmonizer</string>
+    <string name="ISTP">ISTP: Artisan</string>
+    <string name="ESTP">ESTP: Recruiter</string>
+    <string name="ISTJ">ISTJ: Logistician</string>
+    <string name="ESTJ">ESTJ: Manager</string>
+    <string name="INFP">INFP: Monk</string>
+    <string name="ENFP">ENFP: Camper</string>
+    <string name="ISFJ">ISFJ: Warden</string>
+    <string name="ESFJ">ESFJ: Consul</string>
+    <string name="INTP">INTP: Inventor</string>
+    <string name="ENTP">ENTP: Researcher</string>
+
 
     <!-- question 3  -->
     <string name="takeaway">When was the last time you ordered takeaway because you couldn\'t be bothered to cook?</string>
+
+
 
     <!-- question 4-->
     <string name="selfies">How do you feel about selfies 🤳?</string>
