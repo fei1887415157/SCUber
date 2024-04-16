@@ -25,11 +25,11 @@ import com.example.compose.jetsurvey.survey.question.MultipleChoiceQuestion
 import com.example.compose.jetsurvey.survey.question.PhotoQuestion
 import com.example.compose.jetsurvey.survey.question.SingleChoiceQuestion
 import com.example.compose.jetsurvey.survey.question.SliderQuestion
-import com.example.compose.jetsurvey.survey.question.Superhero
+import com.example.compose.jetsurvey.survey.question.MBTI
 
 
 
-// In my free time I like to ...
+// Q1: In my free time I like to ...
 @Composable
 fun FreeTimeQuestion(
     selectedAnswers: List<Int>,
@@ -57,21 +57,21 @@ fun FreeTimeQuestion(
 
 
 
-// What is your MBTI personality type?
+// Q2: What is your MBTI personality type?
 @Composable
 fun YourMBTIQuestion(
-    selectedAnswer: Superhero?,
-    onOptionSelected: (Superhero) -> Unit,
+    selectedAnswer: MBTI?,
+    onOptionSelected: (MBTI) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     SingleChoiceQuestion(
         titleResourceId = R.string.your_MBTI,
         directionsResourceId = R.string.select_one,
         possibleAnswers = listOf(
-            Superhero(R.string.INTJ, R.drawable.lenz),
-            Superhero(R.string.ENTJ, R.drawable.lenz),
-            Superhero(R.string.ISFP, R.drawable.bug_of_chaos),
-            Superhero(R.string.ESFP, R.drawable.frag),
+            MBTI(R.string.INTJ, R.drawable.lenz),
+            MBTI(R.string.ENTJ, R.drawable.lenz),
+            MBTI(R.string.ISFP, R.drawable.bug_of_chaos),
+            MBTI(R.string.ESFP, R.drawable.frag),
         ),
         selectedAnswer = selectedAnswer,
         onOptionSelected = onOptionSelected,

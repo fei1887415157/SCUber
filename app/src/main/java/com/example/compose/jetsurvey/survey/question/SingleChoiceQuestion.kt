@@ -53,9 +53,9 @@ import com.example.compose.jetsurvey.survey.QuestionWrapper
 fun SingleChoiceQuestion(
     @StringRes titleResourceId: Int,
     @StringRes directionsResourceId: Int,
-    possibleAnswers: List<Superhero>,
-    selectedAnswer: Superhero?,
-    onOptionSelected: (Superhero) -> Unit,
+    possibleAnswers: List<MBTI>,
+    selectedAnswer: MBTI?,
+    onOptionSelected: (MBTI) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     QuestionWrapper(
@@ -135,11 +135,11 @@ fun RadioButtonWithImageRow(
 @Composable
 fun SingleChoiceQuestionPreview() {
     val possibleAnswers = listOf(
-        Superhero(R.string.INTJ, R.drawable.spark),
-        Superhero(R.string.ENTJ, R.drawable.lenz),
-        Superhero(R.string.ISFP, R.drawable.bug_of_chaos),
+        MBTI(R.string.INTJ, R.drawable.spark),
+        MBTI(R.string.ENTJ, R.drawable.lenz),
+        MBTI(R.string.ISFP, R.drawable.bug_of_chaos),
     )
-    var selectedAnswer by remember { mutableStateOf<Superhero?>(null) }
+    var selectedAnswer by remember { mutableStateOf<MBTI?>(null) }
 
     SingleChoiceQuestion(
         titleResourceId = R.string.your_MBTI,
@@ -150,4 +150,4 @@ fun SingleChoiceQuestionPreview() {
     )
 }
 
-data class Superhero(@StringRes val stringResourceId: Int, @DrawableRes val imageResourceId: Int)
+data class MBTI(@StringRes val stringResourceId: Int, @DrawableRes val imageResourceId: Int)

@@ -21,7 +21,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.compose.jetsurvey.survey.question.Superhero
+import com.example.compose.jetsurvey.survey.question.MBTI
 
 const val simpleDateFormatPattern = "EEE, MMM d"
 
@@ -45,8 +45,8 @@ class SurveyViewModel(
     val freeTimeResponse: List<Int>
         get() = _freeTimeResponse
 
-    private val _superheroResponse = mutableStateOf<Superhero?>(null)
-    val superheroResponse: Superhero?
+    private val _superheroResponse = mutableStateOf<MBTI?>(null)
+    val superheroResponse: MBTI?
         get() = _superheroResponse.value
 
     private val _takeawayResponse = mutableStateOf<Long?>(null)
@@ -113,7 +113,7 @@ class SurveyViewModel(
         _isNextEnabled.value = getIsNextEnabled()
     }
 
-    fun onSuperheroResponse(superhero: Superhero) {
+    fun onSuperheroResponse(superhero: MBTI) {
         _superheroResponse.value = superhero
         _isNextEnabled.value = getIsNextEnabled()
     }
