@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "740912313091",
+    "project_id": "scuber-9273b",
+    "storage_bucket": "scuber-9273b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740912313091:android:8f0dcdfddcfe41f9012f36",
+        "android_client_info": {
+          "package_name": "com.example.compose.jetsurvey"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPXv2mWG0SzpnOPa9hJ3p06Ti0-86P4qw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
