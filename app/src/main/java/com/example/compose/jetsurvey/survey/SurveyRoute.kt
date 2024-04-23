@@ -48,7 +48,7 @@ fun SurveyRoute(
         factory = SurveyViewModelFactory(PhotoUriManager(LocalContext.current))
     )
 
-    val surveyScreenData = viewModel.surveyScreenData ?: return
+    val surveyScreenData = viewModel.surveyScreenData
 
     BackHandler {
         if (!viewModel.onBackPressed()) {
@@ -99,8 +99,8 @@ fun SurveyRoute(
                     )
                 }
 
-                SurveyQuestion.SUPERHERO -> YourMBTIQuestion(
-                    selectedAnswer = viewModel.superheroResponse,
+                SurveyQuestion.MBTI -> YourMBTIQuestion(
+                    selectedAnswer = viewModel.mbtiResponse,
                     onOptionSelected = viewModel::onSuperheroResponse,
                     modifier = modifier,
                 )

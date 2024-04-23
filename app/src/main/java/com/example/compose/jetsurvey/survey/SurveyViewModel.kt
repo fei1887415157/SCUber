@@ -31,7 +31,7 @@ class SurveyViewModel(
 
     private val questionOrder: List<SurveyQuestion> = listOf(
         SurveyQuestion.FREE_TIME,
-        SurveyQuestion.SUPERHERO,
+        SurveyQuestion.MBTI,
         SurveyQuestion.LAST_TAKEAWAY,
         SurveyQuestion.FEELING_ABOUT_SELFIES,
         SurveyQuestion.TAKE_SELFIE,
@@ -45,9 +45,9 @@ class SurveyViewModel(
     val freeTimeResponse: List<Int>
         get() = _freeTimeResponse
 
-    private val _superheroResponse = mutableStateOf<MBTI?>(null)
-    val superheroResponse: MBTI?
-        get() = _superheroResponse.value
+    private val _mbtiResponse = mutableStateOf<MBTI?>(null)
+    val mbtiResponse: MBTI?
+        get() = _mbtiResponse.value
 
     private val _takeawayResponse = mutableStateOf<Long?>(null)
     val takeawayResponse: Long?
@@ -64,7 +64,7 @@ class SurveyViewModel(
     // ----- Survey status exposed as State -----
 
     private val _surveyScreenData = mutableStateOf(createSurveyScreenData())
-    val surveyScreenData: SurveyScreenData?
+    val surveyScreenData: SurveyScreenData
         get() = _surveyScreenData.value
 
     private val _isNextEnabled = mutableStateOf(false)
@@ -114,7 +114,7 @@ class SurveyViewModel(
     }
 
     fun onSuperheroResponse(superhero: MBTI) {
-        _superheroResponse.value = superhero
+        _mbtiResponse.value = superhero
         _isNextEnabled.value = getIsNextEnabled()
     }
 
@@ -138,7 +138,7 @@ class SurveyViewModel(
     private fun getIsNextEnabled(): Boolean {
         return when (questionOrder[questionIndex]) {
             SurveyQuestion.FREE_TIME -> _freeTimeResponse.isNotEmpty()
-            SurveyQuestion.SUPERHERO -> _superheroResponse.value != null
+            SurveyQuestion.MBTI -> _mbtiResponse.value != null
             SurveyQuestion.LAST_TAKEAWAY -> _takeawayResponse.value != null
             SurveyQuestion.FEELING_ABOUT_SELFIES -> _feelingAboutSelfiesResponse.value != null
             SurveyQuestion.TAKE_SELFIE -> _selfieUri.value != null
@@ -170,7 +170,7 @@ class SurveyViewModelFactory(
 
 enum class SurveyQuestion {
     FREE_TIME,
-    SUPERHERO,
+	MBTI,
     LAST_TAKEAWAY,
     FEELING_ABOUT_SELFIES,
     TAKE_SELFIE,
