@@ -34,7 +34,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.android.material.datepicker.MaterialDatePicker
 
-private const val CONTENT_ANIMATION_DURATION = 300
+private const val CONTENT_ANIMATION_DURATION = 1000
 
 /**
  * Displays a [SurveyQuestionsScreen] tied to the passed [SurveyViewModel]
@@ -99,11 +99,23 @@ fun SurveyRoute(
                     )
                 }
 
-                SurveyQuestion.MBTI -> YourMBTIQuestion(
-                    selectedAnswer = viewModel.mbtiResponse,
-                    onOptionSelected = viewModel::onSuperheroResponse,
-                    modifier = modifier,
-                )
+                SurveyQuestion.MBTI -> {
+					YourMBTIQuestion(
+		                selectedAnswer = viewModel.mbtiResponse,
+		                onOptionSelected = viewModel::onSuperheroResponse,
+		                modifier = modifier,
+	                )
+                }
+
+	            SurveyQuestion.GENDER -> {
+					YourGenderQuestion(
+			            selectedAnswer = viewModel.genderResponse,
+			            onOptionSelected = viewModel::onGenderResponse,
+			            modifier = modifier,
+		            )
+	            }
+	            
+	            
 
                 SurveyQuestion.LAST_TAKEAWAY -> {
                     val supportFragmentManager =

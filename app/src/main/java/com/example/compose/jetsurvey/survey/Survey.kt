@@ -20,12 +20,7 @@ import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.compose.jetsurvey.R
-import com.example.compose.jetsurvey.survey.question.DateQuestion
-import com.example.compose.jetsurvey.survey.question.MultipleChoiceQuestion
-import com.example.compose.jetsurvey.survey.question.PhotoQuestion
-import com.example.compose.jetsurvey.survey.question.SingleChoiceQuestion
-import com.example.compose.jetsurvey.survey.question.SliderQuestion
-import com.example.compose.jetsurvey.survey.question.MBTI
+import com.example.compose.jetsurvey.survey.question.*
 
 
 
@@ -64,7 +59,7 @@ fun YourMBTIQuestion(
     onOptionSelected: (MBTI) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    SingleChoiceQuestion(
+    SingleChoiceQuestionMBTI(
         titleResourceId = R.string.your_MBTI,
         directionsResourceId = R.string.select_one,
         possibleAnswers = listOf(
@@ -90,6 +85,38 @@ fun YourMBTIQuestion(
         modifier = modifier,
     )
 }
+
+
+
+// Q3: What is your gender identity?
+@Composable
+fun YourGenderQuestion(
+	selectedAnswer: Gender?,
+	onOptionSelected: (Gender) -> Unit,
+	modifier: Modifier = Modifier,
+) {
+	SingleChoiceQuestionGender(
+		titleResourceId = R.string.your_gender,
+		directionsResourceId = R.string.select_one,
+		possibleAnswers = listOf(
+			Gender(R.string.male, R.drawable.m),
+			Gender(R.string.female, R.drawable.f),
+			Gender(R.string.les, R.drawable.l),
+			Gender(R.string.gay, R.drawable.g),
+			Gender(R.string.bi, R.drawable.b),
+			Gender(R.string.trans, R.drawable.t),
+			Gender(R.string.queer, R.drawable.q),
+			Gender(R.string.inter, R.drawable.i),
+			Gender(R.string.asex, R.drawable.a),
+			Gender(R.string.others, R.drawable.plus),
+		),
+		selectedAnswer = selectedAnswer,
+		onOptionSelected = onOptionSelected,
+		modifier = modifier,
+	)
+}
+
+
 
 @Composable
 fun TakeawayQuestion(

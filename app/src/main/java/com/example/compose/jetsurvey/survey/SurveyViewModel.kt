@@ -21,6 +21,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.compose.jetsurvey.survey.question.Gender
 import com.example.compose.jetsurvey.survey.question.MBTI
 
 const val simpleDateFormatPattern = "EEE, MMM d"
@@ -29,9 +30,11 @@ class SurveyViewModel(
     private val photoUriManager: PhotoUriManager
 ) : ViewModel() {
 
+	// !!! Controls the order of questions !!!
     private val questionOrder: List<SurveyQuestion> = listOf(
         SurveyQuestion.FREE_TIME,
         SurveyQuestion.MBTI,
+		SurveyQuestion.GENDER,
         SurveyQuestion.LAST_TAKEAWAY,
         SurveyQuestion.FEELING_ABOUT_SELFIES,
         SurveyQuestion.TAKE_SELFIE,
@@ -48,6 +51,10 @@ class SurveyViewModel(
     private val _mbtiResponse = mutableStateOf<MBTI?>(null)
     val mbtiResponse: MBTI?
         get() = _mbtiResponse.value
+
+	private val _genderResponse = mutableStateOf<Gender?>(null)
+	val genderResponse: Gender?
+		get() = _genderResponse.value
 
     private val _takeawayResponse = mutableStateOf<Long?>(null)
     val takeawayResponse: Long?
@@ -118,6 +125,11 @@ class SurveyViewModel(
         _isNextEnabled.value = getIsNextEnabled()
     }
 
+	fun onGenderResponse(gender: Gender) {
+		_genderResponse.value = gender
+		_isNextEnabled.value = getIsNextEnabled()
+	}
+
     fun onTakeawayResponse(timestamp: Long) {
         _takeawayResponse.value = timestamp
         _isNextEnabled.value = getIsNextEnabled()
@@ -139,6 +151,7 @@ class SurveyViewModel(
         return when (questionOrder[questionIndex]) {
             SurveyQuestion.FREE_TIME -> _freeTimeResponse.isNotEmpty()
             SurveyQuestion.MBTI -> _mbtiResponse.value != null
+	        SurveyQuestion.GENDER -> _genderResponse.value != null
             SurveyQuestion.LAST_TAKEAWAY -> _takeawayResponse.value != null
             SurveyQuestion.FEELING_ABOUT_SELFIES -> _feelingAboutSelfiesResponse.value != null
             SurveyQuestion.TAKE_SELFIE -> _selfieUri.value != null
@@ -171,6 +184,8 @@ class SurveyViewModelFactory(
 enum class SurveyQuestion {
     FREE_TIME,
 	MBTI,
+	GENDER,
+	//OTHER_GENDER,
     LAST_TAKEAWAY,
     FEELING_ABOUT_SELFIES,
     TAKE_SELFIE,

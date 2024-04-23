@@ -80,6 +80,26 @@
     <string name="ENTP">ENTP: Researcher</string>
 
 
+
+    <!-- question 3  -->
+    <string name="your_gender">What is your gender identity?</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="les">Lesbian</string>
+    <string name="gay">Gay</string>
+    <string name="bi">Bisexual</string>
+    <string name="trans">Transgender</string>
+    <string name="queer">Queer</string>
+    <string name="inter">Intersex</string>
+    <string name="asex">Asexual</string>
+
+
+
+    <!-- question 4  -->
+    <string name="other_gender">What is your preferred gender identity of the other student?</string>
+
+
+
     <!-- question 3  -->
     <string name="takeaway">When was the last time you ordered takeaway because you couldn\'t be bothered to cook?</string>
 

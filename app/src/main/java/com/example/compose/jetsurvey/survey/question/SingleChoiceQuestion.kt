@@ -50,7 +50,7 @@ import com.example.compose.jetsurvey.R
 import com.example.compose.jetsurvey.survey.QuestionWrapper
 
 @Composable
-fun SingleChoiceQuestion(
+fun SingleChoiceQuestionMBTI(
     @StringRes titleResourceId: Int,
     @StringRes directionsResourceId: Int,
     possibleAnswers: List<MBTI>,
@@ -74,6 +74,33 @@ fun SingleChoiceQuestion(
             )
         }
     }
+}
+
+@Composable
+fun SingleChoiceQuestionGender(
+	@StringRes titleResourceId: Int,
+	@StringRes directionsResourceId: Int,
+	possibleAnswers: List<Gender>,
+	selectedAnswer: Gender?,
+	onOptionSelected: (Gender) -> Unit,
+	modifier: Modifier = Modifier,
+) {
+	QuestionWrapper(
+		titleResourceId = titleResourceId,
+		directionsResourceId = directionsResourceId,
+		modifier = modifier.selectableGroup(),
+	) {
+		possibleAnswers.forEach {
+			val selected = it == selectedAnswer
+			RadioButtonWithImageRow(
+				modifier = Modifier.padding(vertical = 8.dp),
+				text = stringResource(id = it.stringResourceId),
+				imageResourceId = it.imageResourceId,
+				selected = selected,
+				onOptionSelected = { onOptionSelected(it) }
+			)
+		}
+	}
 }
 
 @Composable
@@ -141,7 +168,7 @@ fun SingleChoiceQuestionPreview() {
     )
     var selectedAnswer by remember { mutableStateOf<MBTI?>(null) }
 
-    SingleChoiceQuestion(
+    SingleChoiceQuestionMBTI(
         titleResourceId = R.string.your_MBTI,
         directionsResourceId = R.string.select_one,
         possibleAnswers = possibleAnswers,
@@ -151,3 +178,6 @@ fun SingleChoiceQuestionPreview() {
 }
 
 data class MBTI(@StringRes val stringResourceId: Int, @DrawableRes val imageResourceId: Int)
+
+data class Gender(@StringRes val stringResourceId: Int, @DrawableRes val imageResourceId: Int)
+
