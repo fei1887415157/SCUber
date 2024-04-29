@@ -26,7 +26,7 @@ android {
     defaultConfig {
         applicationId = "com.example.compose.jetsurvey"
         minSdk = libs.versions.minSdk.get().toInt()
-        targetSdk = libs.versions.targetSdk.get().toInt()
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
