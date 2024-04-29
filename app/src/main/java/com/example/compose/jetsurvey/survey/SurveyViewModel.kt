@@ -120,8 +120,8 @@ class SurveyViewModel(
         _isNextEnabled.value = getIsNextEnabled()
     }
 
-    fun onSuperheroResponse(superhero: MBTI) {
-        _mbtiResponse.value = superhero
+    fun onMBTIResponse(mbti: MBTI) {
+        _mbtiResponse.value = mbti
         _isNextEnabled.value = getIsNextEnabled()
     }
 

@@ -102,7 +102,7 @@ fun SurveyRoute(
                 SurveyQuestion.MBTI -> {
 					YourMBTIQuestion(
 		                selectedAnswer = viewModel.mbtiResponse,
-		                onOptionSelected = viewModel::onSuperheroResponse,
+		                onOptionSelected = viewModel::onMBTIResponse,
 		                modifier = modifier,
 	                )
                 }
