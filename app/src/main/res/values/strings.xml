@@ -100,6 +100,13 @@
 
 
 
+    <!-- question 5  -->
+    <string name="driver_or_rider">Do you want to be a driver or a rider?</string>
+    <string name="driver">Driver</string>
+    <string name="rider">Rider</string>
+
+
+
     <!-- question 3  -->
     <string name="takeaway">When was the last time you ordered takeaway because you couldn\'t be bothered to cook?</string>
 

@@ -114,6 +114,14 @@ fun SurveyRoute(
 			            modifier = modifier,
 		            )
 	            }
+
+                SurveyQuestion.DRIVER_RIDER -> {
+                    DriverOrRider(
+                        selectedAnswer = viewModel.driverRiderResponse,
+                        onOptionSelected = viewModel::onDriverRiderResponse,
+                        modifier = modifier,
+                    )
+                }
 	            
 	            
 

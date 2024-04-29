@@ -118,6 +118,28 @@ fun YourGenderQuestion(
 
 
 
+// Q5: Do you want to be a driver or a rider?
+@Composable
+fun DriverOrRider(
+	selectedAnswer: DriverRider?,
+	onOptionSelected: (DriverRider) -> Unit,
+	modifier: Modifier = Modifier,
+) {
+	SingleChoiceQuestionDriverRider(
+		titleResourceId = R.string.driver_or_rider,
+		directionsResourceId = R.string.select_one,
+		possibleAnswers = listOf(
+			DriverRider(R.string.driver, R.drawable.driver),
+			DriverRider(R.string.rider, R.drawable.rider),
+		),
+		selectedAnswer = selectedAnswer,
+		onOptionSelected = onOptionSelected,
+		modifier = modifier,
+	)
+}
+
+
+// Q?: What is the date you want to get picked up?
 @Composable
 fun TakeawayQuestion(
     dateInMillis: Long?,

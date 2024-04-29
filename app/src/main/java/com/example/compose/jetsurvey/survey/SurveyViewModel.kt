@@ -21,20 +21,24 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.compose.jetsurvey.survey.question.Gender
-import com.example.compose.jetsurvey.survey.question.MBTI
+import com.example.compose.jetsurvey.survey.question.*
 
 const val simpleDateFormatPattern = "EEE, MMM d"
+
+
 
 class SurveyViewModel(
     private val photoUriManager: PhotoUriManager
 ) : ViewModel() {
+
+
 
 	// !!! Controls the order of questions !!!
     private val questionOrder: List<SurveyQuestion> = listOf(
         SurveyQuestion.FREE_TIME,
         SurveyQuestion.MBTI,
 		SurveyQuestion.GENDER,
+        SurveyQuestion.DRIVER_RIDER,
         SurveyQuestion.LAST_TAKEAWAY,
         SurveyQuestion.FEELING_ABOUT_SELFIES,
         SurveyQuestion.TAKE_SELFIE,
@@ -55,6 +59,10 @@ class SurveyViewModel(
 	private val _genderResponse = mutableStateOf<Gender?>(null)
 	val genderResponse: Gender?
 		get() = _genderResponse.value
+
+    private val _driverRiderResponse = mutableStateOf<DriverRider?>(null)
+    val driverRiderResponse: DriverRider?
+        get() = _driverRiderResponse.value
 
     private val _takeawayResponse = mutableStateOf<Long?>(null)
     val takeawayResponse: Long?
@@ -130,6 +138,11 @@ class SurveyViewModel(
 		_isNextEnabled.value = getIsNextEnabled()
 	}
 
+    fun onDriverRiderResponse(drive: DriverRider) {
+        _driverRiderResponse.value = drive
+        _isNextEnabled.value = getIsNextEnabled()
+    }
+
     fun onTakeawayResponse(timestamp: Long) {
         _takeawayResponse.value = timestamp
         _isNextEnabled.value = getIsNextEnabled()
@@ -152,6 +165,7 @@ class SurveyViewModel(
             SurveyQuestion.FREE_TIME -> _freeTimeResponse.isNotEmpty()
             SurveyQuestion.MBTI -> _mbtiResponse.value != null
 	        SurveyQuestion.GENDER -> _genderResponse.value != null
+            SurveyQuestion.DRIVER_RIDER -> _driverRiderResponse.value != null
             SurveyQuestion.LAST_TAKEAWAY -> _takeawayResponse.value != null
             SurveyQuestion.FEELING_ABOUT_SELFIES -> _feelingAboutSelfiesResponse.value != null
             SurveyQuestion.TAKE_SELFIE -> _selfieUri.value != null
@@ -186,6 +200,7 @@ enum class SurveyQuestion {
 	MBTI,
 	GENDER,
 	//OTHER_GENDER,
+    DRIVER_RIDER,
     LAST_TAKEAWAY,
     FEELING_ABOUT_SELFIES,
     TAKE_SELFIE,

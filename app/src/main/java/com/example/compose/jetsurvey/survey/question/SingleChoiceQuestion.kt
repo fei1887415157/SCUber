@@ -104,6 +104,33 @@ fun SingleChoiceQuestionGender(
 }
 
 @Composable
+fun SingleChoiceQuestionDriverRider(
+	@StringRes titleResourceId: Int,
+	@StringRes directionsResourceId: Int,
+	possibleAnswers: List<DriverRider>,
+	selectedAnswer: DriverRider?,
+	onOptionSelected: (DriverRider) -> Unit,
+	modifier: Modifier = Modifier,
+) {
+	QuestionWrapper(
+		titleResourceId = titleResourceId,
+		directionsResourceId = directionsResourceId,
+		modifier = modifier.selectableGroup(),
+	) {
+		possibleAnswers.forEach {
+			val selected = it == selectedAnswer
+			RadioButtonWithImageRow(
+				modifier = Modifier.padding(vertical = 8.dp),
+				text = stringResource(id = it.stringResourceId),
+				imageResourceId = it.imageResourceId,
+				selected = selected,
+				onOptionSelected = { onOptionSelected(it) }
+			)
+		}
+	}
+}
+
+@Composable
 fun RadioButtonWithImageRow(
     text: String,
     @DrawableRes imageResourceId: Int,
@@ -180,4 +207,6 @@ fun SingleChoiceQuestionPreview() {
 data class MBTI(@StringRes val stringResourceId: Int, @DrawableRes val imageResourceId: Int)
 
 data class Gender(@StringRes val stringResourceId: Int, @DrawableRes val imageResourceId: Int)
+
+data class DriverRider(@StringRes val stringResourceId: Int, @DrawableRes val imageResourceId: Int)
 
