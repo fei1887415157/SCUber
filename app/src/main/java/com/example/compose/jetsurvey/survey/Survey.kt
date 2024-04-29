@@ -118,6 +118,36 @@ fun YourGenderQuestion(
 
 
 
+// Q4: What is your acceptable gender identity of the other student?
+@Composable
+fun OtherGenderQuestion(
+	selectedAnswers: List<Int>,
+	onOptionSelected: (selected: Boolean, answer: Int) -> Unit,
+	modifier: Modifier = Modifier,
+) {
+	MultipleChoiceQuestion(
+		titleResourceId = R.string.other_gender,
+		directionsResourceId = R.string.select_all,
+		possibleAnswers = listOf(
+			R.string.male,
+			R.string.female,
+			R.string.les,
+			R.string.gay,
+			R.string.bi,
+			R.string.trans,
+			R.string.queer,
+			R.string.inter,
+			R.string.asex,
+			R.string.others,
+		),
+		selectedAnswers = selectedAnswers,
+		onOptionSelected = onOptionSelected,
+		modifier = modifier,
+	)
+}
+
+
+
 // Q5: Do you want to be a driver or a rider?
 @Composable
 fun DriverOrRider(

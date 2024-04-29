@@ -38,6 +38,7 @@ class SurveyViewModel(
         SurveyQuestion.FREE_TIME,
         SurveyQuestion.MBTI,
 		SurveyQuestion.GENDER,
+        SurveyQuestion.OTHER_GENDER,
         SurveyQuestion.DRIVER_RIDER,
         SurveyQuestion.LAST_TAKEAWAY,
         SurveyQuestion.FEELING_ABOUT_SELFIES,
@@ -59,6 +60,10 @@ class SurveyViewModel(
 	private val _genderResponse = mutableStateOf<Gender?>(null)
 	val genderResponse: Gender?
 		get() = _genderResponse.value
+
+    private val _otherGenderResponse = mutableStateListOf<Int>()
+    val otherGenderResponse: List<Int>
+        get() = _otherGenderResponse
 
     private val _driverRiderResponse = mutableStateOf<DriverRider?>(null)
     val driverRiderResponse: DriverRider?
@@ -138,6 +143,18 @@ class SurveyViewModel(
 		_isNextEnabled.value = getIsNextEnabled()
 	}
 
+    fun onOtherGenderResponse(selected: Boolean, answer: Int) {
+        if (selected)
+        {
+            _otherGenderResponse.add(answer)
+        }
+        else
+        {
+            _otherGenderResponse.remove(answer)
+        }
+        _isNextEnabled.value = getIsNextEnabled()
+    }
+
     fun onDriverRiderResponse(drive: DriverRider) {
         _driverRiderResponse.value = drive
         _isNextEnabled.value = getIsNextEnabled()
@@ -165,6 +182,7 @@ class SurveyViewModel(
             SurveyQuestion.FREE_TIME -> _freeTimeResponse.isNotEmpty()
             SurveyQuestion.MBTI -> _mbtiResponse.value != null
 	        SurveyQuestion.GENDER -> _genderResponse.value != null
+            SurveyQuestion.OTHER_GENDER -> _otherGenderResponse.isNotEmpty()
             SurveyQuestion.DRIVER_RIDER -> _driverRiderResponse.value != null
             SurveyQuestion.LAST_TAKEAWAY -> _takeawayResponse.value != null
             SurveyQuestion.FEELING_ABOUT_SELFIES -> _feelingAboutSelfiesResponse.value != null
@@ -199,7 +217,7 @@ enum class SurveyQuestion {
     FREE_TIME,
 	MBTI,
 	GENDER,
-	//OTHER_GENDER,
+	OTHER_GENDER,
     DRIVER_RIDER,
     LAST_TAKEAWAY,
     FEELING_ABOUT_SELFIES,

@@ -115,6 +115,14 @@ fun SurveyRoute(
 		            )
 	            }
 
+                SurveyQuestion.OTHER_GENDER -> {
+                    OtherGenderQuestion(
+                        selectedAnswers = viewModel.otherGenderResponse,
+                        onOptionSelected = viewModel::onOtherGenderResponse,
+                        modifier = modifier,
+                    )
+                }
+
                 SurveyQuestion.DRIVER_RIDER -> {
                     DriverOrRider(
                         selectedAnswer = viewModel.driverRiderResponse,
